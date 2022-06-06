@@ -1,14 +1,15 @@
 const apiPromise = fetch(
   "https://grandcircusco.github.io/demo-apis/donuts.json"
 )
-  .then((res) => {
-    return res.json();
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data.results);
   })
-  .then((jsonData) => {
-    console.log(jsonData.results);
-  })
-  .then((jsonData) => {
-    const countPromise = (data) => {
-      console.log(jsonData.count);
-    };
+  .then((newData) => {
+    function countPromise() {
+      console.log(newData.count);
+      return countPromise;
+    }
   });
+
+// I understand promises and I understand chainging, but I cannot seem to understand THIS particular assignment...
